@@ -124,3 +124,13 @@ for (int i = 0; i < 3; i++) {
 }
 return new Vector4[][] { gl_Position, v_color };
 ```
+
+## Implementation Notes / Debug Log
+
+在實作過程中，我遇到並解決了下列實際問題：
+
+- 避免使用 `color` 作為變數名稱（Processing 保留字）
+- 修正 normalize() 為 void，不直接回傳值
+- 修改 environment × object 顏色相乘為分量乘法
+- 確保在 `setup()` 中初始化光源與 camera 位置（避免 NullPointer）
+- 將所有光照方向從光源 position 計算，而不是 direction
